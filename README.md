@@ -9,11 +9,6 @@ about-us.html                  About Us (Who We Are, Mission, Vision, Safety)
 our-culture.html               Our Culture
 services.html                  Services (OTR, Power Only, Drop & Hook, TL + cargo types)
 contact.html                   Contact form
-jobs-solo-driver.html          Work with Us › Solo Driver
-jobs-team-driver.html          Work with Us › Team Driver
-jobs-owner-operator.html       Work with Us › Owner Operator
-jobs-carrier-contractor.html   Work with Us › Carrier Contractor (quote form)
-jobs-dispatch-contractor.html  Work with Us › Dispatch Contractor
 privacy-policy.html            Privacy Policy
 404.html                       Branded not-found page (self-contained)
 css/styles.css                 All styling + design tokens

@@ -4,31 +4,21 @@
 (function () {
   "use strict";
 
+  // External driver application (IntelliApp) — the "Careers / Apply Now" destination.
+  var CAREERS_URL = "https://intelliapp.driverapponline.com/c/blftransportation";
+
   var NAV = [
     { key: "about",    href: "about-us.html",    label: "About Us" },
     { key: "culture",  href: "our-culture.html", label: "Our Culture" },
     { key: "services", href: "services.html",    label: "Services" }
   ];
-  var JOBS = [
-    { href: "jobs-solo-driver.html",         label: "Solo Driver" },
-    { href: "jobs-team-driver.html",         label: "Team Driver" },
-    { href: "jobs-owner-operator.html",      label: "Owner Operator" },
-    { href: "jobs-carrier-contractor.html",  label: "Carrier Contractor" },
-    { href: "jobs-dispatch-contractor.html", label: "Dispatch Contractor" }
-  ];
 
   var page = document.body.getAttribute("data-page") || "";
-  var isJob = JOBS.some(function (j) { return j.href === (location.pathname.split("/").pop()); }) || page === "jobs";
 
   function navItems() {
     return NAV.map(function (n) {
       var a = 'class="' + (page === n.key ? "active" : "") + '"';
       return '<li ' + a + '><a href="' + n.href + '">' + n.label + '</a></li>';
-    }).join("");
-  }
-  function jobItems() {
-    return JOBS.map(function (j) {
-      return '<li><a href="' + j.href + '">' + j.label + '</a></li>';
     }).join("");
   }
 
@@ -62,8 +52,7 @@
       '<button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>' +
       '<nav class="nav"><ul>' +
         navItems() +
-        '<li class="has-dropdown' + (isJob ? ' active' : '') + '"><a href="#">Work with Us</a>' +
-          '<ul class="dropdown">' + jobItems() + '</ul></li>' +
+        '<li><a href="' + CAREERS_URL + '" target="_blank" rel="noopener">Careers</a></li>' +
         '<li class="' + (page === "contact" ? "active" : "") + '"><a href="contact.html">Contact</a></li>' +
       '</ul></nav>' +
     '</div></header>';
