@@ -47,7 +47,7 @@
     '</div></div>' +
     '<header class="header"><div class="container">' +
       '<a href="index.html" class="logo">' +
-        '<img src="assets/blf-logo-trim.png" alt="BLF Transportation Logistics Corp">' +
+        '<img src="assets/blf-logo.svg" alt="BLF Transportation">' +
       '</a>' +
       '<button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>' +
       '<nav class="nav"><ul>' +
