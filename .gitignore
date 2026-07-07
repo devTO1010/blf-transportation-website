@@ -1,0 +1,11 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*~
+
+# Local dev server output / temp
+*.output
+scratchpad/
+
+# Local Claude Code settings
+.claude/
