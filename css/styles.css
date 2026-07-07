@@ -106,11 +106,11 @@ p { margin: 0 0 1rem; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 96px;
+  min-height: 104px;
   gap: 24px;
 }
 .logo { display: flex; align-items: center; }
-.logo img { height: 58px; width: auto; display: block; }
+.logo img { height: 76px; width: auto; display: block; }
 
 .nav { display: flex; align-items: center; }
 .nav ul { list-style: none; display: flex; gap: 34px; margin: 0; padding: 0; }
