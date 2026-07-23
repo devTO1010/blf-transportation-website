@@ -1,16 +1,14 @@
 /* BLF Transportation — shared layout injection + behaviour.
    Each page sets <body data-page="..."> to mark the active nav item.
-   Header, footer and chat markup live here so they stay in sync site-wide. */
+   Header and footer markup live here so they stay in sync site-wide. */
 (function () {
   "use strict";
-
-  // External driver application (IntelliApp) — the "Careers / Apply Now" destination.
-  var CAREERS_URL = "https://intelliapp.driverapponline.com/c/blftransportation";
 
   var NAV = [
     { key: "about",    href: "about-us.html",    label: "About Us" },
     { key: "culture",  href: "our-culture.html", label: "Our Culture" },
-    { key: "services", href: "services.html",    label: "Services" }
+    { key: "services", href: "services.html",    label: "Services" },
+    { key: "careers",  href: "careers.html",     label: "Careers" }
   ];
 
   var page = document.body.getAttribute("data-page") || "";
@@ -28,8 +26,7 @@
     li: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.6h.05c.53-1 1.83-2.05 3.77-2.05C20.5 8.55 21 11 21 14.1V21h-4v-6c0-1.43-.03-3.27-2-3.27-2 0-2.3 1.56-2.3 3.17V21H9z"/></svg>',
     phone: '<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24c1.1.37 2.3.57 3.6.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.3.2 2.5.57 3.6a1 1 0 0 1-.25 1z"/></svg>',
     mail: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>',
-    clock: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>',
-    chat: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.5 8.5 0 0 1-12.3 7.6L3 21l1.9-5.7A8.5 8.5 0 1 1 21 11.5z"/></svg>'
+    clock: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>'
   };
 
   var header =
@@ -41,7 +38,7 @@
       '</div>' +
       '<div class="topbar__contact">' +
         '<a href="tel:+15029570339">' + ICON.phone + ' +1(502) 957-0339</a>' +
-        '<a href="mailto:info@blftransportation.com">' + ICON.mail + ' info@blftransportation.com</a>' +
+        '<a href="mailto:jobs@blftransportation.com">' + ICON.mail + ' jobs@blftransportation.com</a>' +
         '<a href="contact.html" class="topbar__cta">Get a Quote</a>' +
       '</div>' +
     '</div></div>' +
@@ -52,7 +49,6 @@
       '<button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>' +
       '<nav class="nav"><ul>' +
         navItems() +
-        '<li><a href="' + CAREERS_URL + '" target="_blank" rel="noopener">Careers</a></li>' +
         '<li class="' + (page === "contact" ? "active" : "") + '"><a href="contact.html">Contact</a></li>' +
       '</ul></nav>' +
     '</div></header>';
@@ -60,7 +56,7 @@
   var footer =
     '<div class="footer-contact"><div class="container"><div class="cols">' +
       '<div><div class="fc-icon">' + ICON.phone.replace(/15"/g,'30"') + '</div><h3>Call Us Now</h3><p><a href="tel:+15029570339" style="color:inherit">+1(502) 957-0339</a></p></div>' +
-      '<div><div class="fc-icon">' + ICON.mail.replace(/15"/g,'30"') + '</div><h3>Email Us</h3><p><a href="mailto:info@blftransportation.com" style="color:inherit">info@blftransportation.com</a></p></div>' +
+      '<div><div class="fc-icon">' + ICON.mail.replace(/15"/g,'30"') + '</div><h3>Email Us</h3><p><a href="mailto:jobs@blftransportation.com" style="color:inherit">jobs@blftransportation.com</a></p></div>' +
       '<div><div class="fc-icon">' + ICON.clock + '</div><h3>Opening Hours</h3><p>24/7 365 Days a Year</p></div>' +
     '</div></div></div>' +
     '<div class="footer-bottom">' +
@@ -68,17 +64,10 @@
       '<span>&copy; 2026 BLF Transportation LLC. All rights reserved.</span>' +
       '<a href="privacy-policy.html" class="privacy">Privacy Policy</a></div>';
 
-  var chat =
-    '<div class="chat"><div class="chat__bubble">' +
-      '<img src="https://ui-avatars.com/api/?name=BLF&background=27B9B3&color=fff&size=64" alt="">' +
-      '<span>Hi there, have a question?<br>Text us here.</span>' +
-      '<button class="chat__close" aria-label="Close">&times;</button></div>' +
-      '<button class="chat__btn" aria-label="Open chat">' + ICON.chat + '</button></div>';
-
   var h = document.getElementById("site-header");
   var f = document.getElementById("site-footer");
   if (h) h.innerHTML = header;
-  if (f) f.innerHTML = footer + chat;
+  if (f) f.innerHTML = footer;
 
   // ---- behaviour ----
   var toggle = document.querySelector(".nav-toggle");
@@ -91,12 +80,6 @@
     });
   });
 
-  var chatEl = document.querySelector(".chat");
-  var chatClose = document.querySelector(".chat__close");
-  var chatBtn = document.querySelector(".chat__btn");
-  if (chatClose) chatClose.addEventListener("click", function () { chatEl.classList.add("hidden"); });
-  if (chatBtn) chatBtn.addEventListener("click", function () { chatEl.classList.toggle("hidden"); });
-
   // ---- Form submission --------------------------------------------------
   // To send form submissions for real, set FORM_ENDPOINT below.
   //   • Formspree:  create a form at formspree.io, then paste its endpoint,
@@ -104,7 +87,7 @@
   //   • Web3Forms:  create a free access key at web3forms.com, set FORM_ENDPOINT
   //                 to "https://api.web3forms.com/submit" and put the key in WEB3FORMS_KEY.
   // Leave FORM_ENDPOINT empty to run in demo mode (no data is sent).
-  var FORM_ENDPOINT = "";   // <-- paste your Formspree/Web3Forms endpoint here
+  var FORM_ENDPOINT = "https://formspree.io/f/xeeyezor";   // <-- paste your Formspree/Web3Forms endpoint here
   var WEB3FORMS_KEY = "";   // <-- only needed for Web3Forms
 
   function setStatus(el, msg, type) {

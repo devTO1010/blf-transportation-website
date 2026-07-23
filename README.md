@@ -8,11 +8,12 @@ index.html                     Home
 about-us.html                  About Us (Who We Are, Mission, Vision, Safety)
 our-culture.html               Our Culture
 services.html                  Services (OTR, Power Only, Drop & Hook, TL + cargo types)
+careers.html                   Careers — Apply Now CTA to the IntelliApp driver application
 contact.html                   Contact form
 privacy-policy.html            Privacy Policy
 404.html                       Branded not-found page (self-contained)
 css/styles.css                 All styling + design tokens
-js/site.js                     Injects shared header/footer/chat + wires nav, chat, forms
+js/site.js                     Injects shared header/footer + wires nav, forms
 assets/blf-logo-trim.png       Official BLF logo (auto-trimmed of white padding)
 .github/workflows/deploy.yml   GitHub Pages deploy workflow
 .nojekyll                      Tells Pages to serve files as-is (no Jekyll build)
@@ -51,7 +52,7 @@ The repo ships with a GitHub Actions workflow (`.github/workflows/deploy.yml`) t
 - [ ] **Re-host images.** Hero/section photos currently hot-link the original site's CDN (`images.leadconnectorhq.com`). Download real photos into `/assets` and update the `background-image` URLs. Service-detail rows use gradient placeholders — swap in real photos.
 - [x] **Logo.** Using the client's official logo (`assets/blf-logo-trim.png`). A vector (`.svg`/`.ai`) would be ideal for print/retina but the HD PNG is fine for web.
 - [ ] **Activate forms.** Forms POST via `js/site.js` and are ready to go live — just set `FORM_ENDPOINT` (and `WEB3FORMS_KEY` if using Web3Forms) near the bottom of `js/site.js`. Get a free endpoint from [Formspree](https://formspree.io) or [Web3Forms](https://web3forms.com). Until then they run in demo mode (validate + confirm, but don't send). Inline success/error messages are already wired.
-- [ ] **Chat widget.** The bubble is a static stub — connect the client's real chat/SMS widget or remove it.
+- [x] **Chat widget.** Removed.
 - [ ] **Social links.** Top-bar Facebook / Instagram / LinkedIn icons link to `#` — add real URLs.
 - [ ] **reCAPTCHA.** Original had Google reCAPTCHA on forms; add if desired.
 - [ ] **Privacy Policy.** Review `privacy-policy.html` with legal counsel before publishing.

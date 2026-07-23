@@ -335,23 +335,6 @@ p { margin: 0 0 1rem; }
 .footer-bottom .privacy { display: block; margin-top: 8px; color: var(--white); }
 
 /* ==========================================================================
-   Chat widget (static stub)
-   ========================================================================== */
-.chat { position: fixed; right: 24px; bottom: 24px; z-index: 200; display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
-.chat__bubble {
-  background: var(--white); border-radius: 14px; box-shadow: 0 10px 30px rgba(0,0,0,.18);
-  padding: 14px 16px; display: flex; gap: 12px; align-items: center; max-width: 260px; font-size: 14px; color: var(--heading);
-}
-.chat__bubble img { width: 34px; height: 34px; border-radius: 50%; }
-.chat__close { margin-left: 6px; cursor: pointer; color: #999; background: none; border: none; font-size: 16px; }
-.chat__btn {
-  width: 58px; height: 58px; border-radius: 50%; background: var(--charcoal); color: var(--white);
-  border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(0,0,0,.25);
-}
-.chat__btn svg { width: 26px; height: 26px; }
-.chat.hidden .chat__bubble { display: none; }
-
-/* ==========================================================================
    Responsive
    ========================================================================== */
 @media (max-width: 900px) {
